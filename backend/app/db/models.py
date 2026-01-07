@@ -1,6 +1,7 @@
-from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey, Text
+from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey, Text, Boolean
 from sqlalchemy.orm import relationship
 from app.db.base import Base
+from datetime import datetime
 
 class Account(Base):
     __tablename__ = "accounts"
@@ -78,3 +79,12 @@ class ImportRule(Base):
     category_id = Column(Integer, ForeignKey("categories.id"), nullable=False)
 
     category = relationship("Category", back_populates="rules")
+
+class ApiKey(Base):
+    __tablename__ = "api_keys"
+
+    id = Column(Integer, primary_key=True, index=True)
+    key = Column(String, unique=True, nullable=False)
+    name = Column(String, nullable=False)  # e.g., "External API"
+    created_at = Column(Date, default=datetime.utcnow)
+    is_active = Column(Boolean, default=True)

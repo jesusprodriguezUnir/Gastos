@@ -57,6 +57,16 @@ def seed_db():
     else:
         print("Invoice Categories already exist.")
 
+    # Check if API keys exist
+    if db.query(models.ApiKey).count() == 0:
+        print("Creating default API key...")
+        api_key = models.ApiKey(key="financeflow-api-key-2026", name="Default External API Key")
+        db.add(api_key)
+        db.commit()
+        print("API Key created.")
+    else:
+        print("API Keys already exist.")
+
     db.close()
     print("Seeding complete.")
 

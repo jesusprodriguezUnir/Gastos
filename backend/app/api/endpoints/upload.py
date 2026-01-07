@@ -15,7 +15,8 @@ def upload_file(
     file: UploadFile = File(...),
     bank_name: str = Form(...),
     account_id: int = Form(...),
-    db: Session = Depends(deps.get_db)
+    db: Session = Depends(deps.get_db),
+    api_key = Depends(deps.get_api_key)
 ):
     # Save temp file
     # In a real app, handle file types carefully

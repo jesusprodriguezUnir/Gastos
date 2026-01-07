@@ -52,7 +52,8 @@ def upload_invoice(
     invoice_category_id: int = Form(...),
     description: str = Form(None),
     file: UploadFile = File(...),
-    db: Session = Depends(deps.get_db)
+    db: Session = Depends(deps.get_db),
+    api_key = Depends(deps.get_api_key)
 ):
     # Validations
     category = db.query(models.InvoiceCategory).filter(models.InvoiceCategory.id == invoice_category_id).first()

@@ -1,6 +1,6 @@
 from app.db.base import Base
 from app.db.session import engine
-from app.db.models import Account, Category, Transaction, ImportRule
+from app.db.models import Account, Category, Transaction, ImportRule, Invoice, InvoiceCategory, ApiKey
 
 def init_db():
     print("Creating database tables...")
