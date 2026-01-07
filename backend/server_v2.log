@@ -4,3 +4,149 @@ INFO:     Started reloader process [11772] using WatchFiles
 INFO:     Started server process [32808]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\api\endpoints\upload.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32808]
+WARNING:  WatchFiles detected changes in 'app\services\importers\caixa.py', 'app\db\reset.py', 'app\db\seed.py', 'app\services\import_service.py'. Reloading...
+INFO:     Started server process [15388]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+INFO:     Started server process [15548]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\api\endpoints\upload.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15548]
+INFO:     Started server process [34800]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\services\importers\caixa.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34800]
+WARNING:  WatchFiles detected changes in 'app\tests\test_importers.py', 'app\tests\test_services.py', 'app\tests\conftest.py'. Reloading...
+INFO:     Started server process [37192]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+INFO:     Started server process [33444]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\tests\conftest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [33444]
+WARNING:  WatchFiles detected changes in 'app\tests\test_api.py', 'app\tests\conftest.py'. Reloading...
+INFO:     Started server process [35860]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+INFO:     Started server process [35336]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\tests\conftest.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35336]
+INFO:     Started server process [26360]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\services\importers\caixa.py'. Reloading...

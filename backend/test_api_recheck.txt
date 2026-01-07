@@ -1,0 +1,76 @@
+==================================================================================================================================================== test session starts ====================================================================================================================================================
+platform win32 -- Python 3.13.2, pytest-8.3.4, pluggy-1.6.0
+rootdir: D:\Programas\Temp\Gastos\backend
+plugins: anyio-3.7.1, langsmith-0.6.0, asyncio-0.21.1, cov-4.1.0, mock-3.12.0
+asyncio: mode=Mode.STRICT
+collected 2 items
+
+app\tests\test_api.py .F                                                                                                                                                                                                                                                                                               [100%]
+
+========================================================================================================================================================= FAILURES ==========================================================================================================================================================
+_____________________________________________________________________________________________________________________________________________________ test_upload_flow ______________________________________________________________________________________________________________________________________________________
+
+client = <starlette.testclient.TestClient object at 0x000002124DEA3110>, db = <sqlalchemy.orm.session.Session object at 0x000002124DF3D450>
+
+    def test_upload_flow(client, db):
+        # 1. Create Account
+        from app.db.models import Account
+        acc = Account(name="TestImport", bank_name="CAIXA", currency="EUR")
+        db.add(acc)
+        db.commit()
+        db.refresh(acc)
+    
+        # 2. Upload File
+        # Create valid Caixa excel? Or CSV if supported. Caixa Importer supports parsed DataFrame.
+        # The pandas read_excel might fail if we send CSV bytes but claimed excel?
+        # CaixaImporter calls read_file which calls pd.read_excel or pd.read_csv based on extension?
+        # BaseImporter.read_file uses pd.read_excel for .xlsx and .xls, pd.read_csv for .csv
+    
+        csv_content = b"Fecha,Concepto,Importe\n01/01/2026,Test Transaction,120,50"
+        files = {
+            'file': ('test.csv', csv_content, 'text/csv')
+        }
+        data = {
+            'bank_name': 'CAIXA',
+            'account_id': str(acc.id)
+        }
+    
+        response = client.post("/api/v1/upload/", files=files, data=data)
+    
+        # Debug if fails
+        if response.status_code != 200:
+            print(response.json())
+    
+>       assert response.status_code == 200
+E       assert 400 == 200
+E        +  where 400 = <Response [400 Bad Request]>.status_code
+
+app\tests\test_api.py:50: AssertionError
+--------------------------------------------------------------------------------------------------------------------------------------------------- Captured stdout call ----------------------------------------------------------------------------------------------------------------------------------------------------
+--- Starting Import Process ---
+File: test.csv, Bank: CAIXA, Account ID: 1, Temp Path: C:\Users\jesus\AppData\Local\Temp\tmpt5yp2gwq.csv
+Selecting importer implementation for: CAIXA
+Using Importer: CaixaImporter
+Reading file: C:\Users\jesus\AppData\Local\Temp\tmpt5yp2gwq.csv
+Error reading file: Error tokenizing data. C error: Expected 3 fields in line 2, saw 4
+
+ERROR during import: Error tokenizing data. C error: Expected 3 fields in line 2, saw 4
+
+Temp file removed.
+{'detail': 'Error tokenizing data. C error: Expected 3 fields in line 2, saw 4\n'}
+===================================================================================================================================================== warnings summary ======================================================================================================================================================
+app\db\base.py:3
+  D:\Programas\Temp\Gastos\backend\app\db\base.py:3: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+..\..\..\..\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pydantic\_internal\_config.py:323
+..\..\..\..\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pydantic\_internal\_config.py:323
+..\..\..\..\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pydantic\_internal\_config.py:323
+..\..\..\..\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pydantic\_internal\_config.py:323
+  D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pydantic\_internal\_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================================================================================================================================================== short test summary info ==================================================================================================================================================
+FAILED app/tests/test_api.py::test_upload_flow - assert 400 == 200
+========================================================================================================================================== 1 failed, 1 passed, 5 warnings in 0.22s ==========================================================================================================================================

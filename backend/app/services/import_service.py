@@ -15,8 +15,11 @@ class ImportService:
         }
 
     def process_file(self, bank_name: str, file_path: str, account_id: int) -> List[TransactionCreate]:
+        print(f"Selecting importer implementation for: {bank_name}")
         importer = self.importers.get(bank_name.upper())
         if not importer:
+            print(f"Importer not found for: {bank_name}")
             raise ValueError(f"No importer found for bank: {bank_name}")
         
+        print(f"Using Importer: {importer.__class__.__name__}")
         return importer.parse(file_path, account_id)

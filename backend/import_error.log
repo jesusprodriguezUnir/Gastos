@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "D:\Programas\Temp\Gastos\backend\app\api\endpoints\upload.py", line 33, in upload_file
+    transactions = importer_service.process_file(bank_name, tmp_path, account_id)
+  File "D:\Programas\Temp\Gastos\backend\app\services\import_service.py", line 25, in process_file
+    return importer.parse(file_path, account_id)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Programas\Temp\Gastos\backend\app\services\importers\caixa.py", line 43, in parse
+    raise e
+  File "D:\Programas\Temp\Gastos\backend\app\services\importers\caixa.py", line 17, in parse
+    df_temp = pd.read_csv(file_path, header=None, nrows=10)
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pandas\io\parsers\readers.py", line 626, in _read
+    return parser.read(nrows)
+           ~~~~~~~~~~~^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pandas\io\parsers\readers.py", line 1923, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        nrows
+        ^^^^^
+    )
+    ^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 850, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 905, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 3 fields in line 2, saw 4
+

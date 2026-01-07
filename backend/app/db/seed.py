@@ -1,0 +1,45 @@
+from app.db.session import SessionLocal, engine
+from app.db import models
+from app.db.base import Base
+
+def seed_db():
+    print("Seeding database...")
+    db = SessionLocal()
+    
+    # Check if accounts exist
+    if db.query(models.Account).count() == 0:
+        print("Creating default accounts...")
+        accounts = [
+            models.Account(name="Cuenta Principal", bank_name="CAIXA", currency="EUR"),
+            models.Account(name="Ahorros", bank_name="ING", currency="EUR"),
+            models.Account(name="Gastos Compartidos", bank_name="SABADELL", currency="EUR"),
+            models.Account(name="Viajes", bank_name="REVOLUT", currency="EUR"),
+        ]
+        db.add_all(accounts)
+        db.commit()
+        print("Accounts created.")
+    else:
+        print("Accounts already exist.")
+
+    # Check if categories exist
+    if db.query(models.Category).count() == 0:
+        print("Creating default categories...")
+        categories = [
+            models.Category(name="Supermercado", type="EXPENSE"),
+            models.Category(name="Nómina", type="INCOME"),
+            models.Category(name="Restaurantes", type="EXPENSE"),
+            models.Category(name="Transporte", type="EXPENSE"),
+            models.Category(name="Ocio", type="EXPENSE"),
+            models.Category(name="Transferencias", type="EXPENSE"),
+        ]
+        db.add_all(categories)
+        db.commit()
+        print("Categories created.")
+    else:
+        print("Categories already exist.")
+
+    db.close()
+    print("Seeding complete.")
+
+if __name__ == "__main__":
+    seed_db()
