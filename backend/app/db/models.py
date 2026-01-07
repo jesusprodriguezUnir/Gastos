@@ -35,9 +35,40 @@ class Transaction(Base):
     
     account_id = Column(Integer, ForeignKey("accounts.id"), nullable=False)
     category_id = Column(Integer, ForeignKey("categories.id"), nullable=True)
+    invoice_id = Column(Integer, ForeignKey("invoices.id"), nullable=True)
 
     account = relationship("Account", back_populates="transactions")
     category = relationship("Category", back_populates="transactions")
+    invoice = relationship("Invoice", back_populates="transactions")
+
+class InvoiceCategory(Base):
+    __tablename__ = "invoice_categories"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, nullable=False)
+    icon = Column(String, nullable=True) # e.g., 'droplet', 'zap' (Lucide icon name)
+
+    invoices = relationship("Invoice", back_populates="invoice_category")
+
+class Invoice(Base):
+    __tablename__ = "invoices"
+
+    id = Column(Integer, primary_key=True, index=True)
+    vendor = Column(String, nullable=False)
+    date = Column(Date, nullable=False)
+    amount = Column(Float, nullable=False)
+    currency = Column(String, default="EUR")
+    description = Column(String)
+    
+    # Links
+    category_id = Column(Integer, ForeignKey("categories.id"), nullable=True) # General expense category
+    invoice_category_id = Column(Integer, ForeignKey("invoice_categories.id"), nullable=True) # Specific invoice type (Luz, Agua)
+    
+    file_path = Column(String, nullable=False)
+
+    category = relationship("Category")
+    invoice_category = relationship("InvoiceCategory", back_populates="invoices")
+    transactions = relationship("Transaction", back_populates="invoice")
 
 class ImportRule(Base):
     __tablename__ = "import_rules"

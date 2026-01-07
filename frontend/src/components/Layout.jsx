@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import { LayoutDashboard, Receipt, Import, CreditCard } from 'lucide-react';
+import { LayoutDashboard, Receipt, Import, CreditCard, FileText } from 'lucide-react';
 import './Layout.css';
 
 export default function Layout() {
@@ -21,6 +21,10 @@ export default function Layout() {
                     <NavLink to="/import" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
                         <Import size={20} />
                         <span>Import</span>
+                    </NavLink>
+                    <NavLink to="/invoices" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+                        <FileText size={20} />
+                        <span>Invoices</span>
                     </NavLink>
                 </nav>
             </aside >

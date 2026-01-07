@@ -38,6 +38,25 @@ def seed_db():
     else:
         print("Categories already exist.")
 
+    # Check if invoice categories exist
+    if db.query(models.InvoiceCategory).count() == 0:
+        print("Creating default invoice categories...")
+        inv_categories = [
+            models.InvoiceCategory(name="Luz", icon="zap"),
+            models.InvoiceCategory(name="Agua", icon="droplet"),
+            models.InvoiceCategory(name="Gas", icon="flame"),
+            models.InvoiceCategory(name="Internet/Teléfono", icon="wifi"),
+            models.InvoiceCategory(name="Comunidad", icon="building"),
+            models.InvoiceCategory(name="Nómina", icon="banknote"),
+            models.InvoiceCategory(name="Seguros", icon="shield"),
+            models.InvoiceCategory(name="Otros", icon="file-text"),
+        ]
+        db.add_all(inv_categories)
+        db.commit()
+        print("Invoice Categories created.")
+    else:
+        print("Invoice Categories already exist.")
+
     db.close()
     print("Seeding complete.")
 

@@ -187,3 +187,131 @@ INFO:     Started server process [3056]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 WARNING:  WatchFiles detected changes in 'app\services\importers\caixa.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3056]
+WARNING:  WatchFiles detected changes in 'app\services\importers\caixa.py'. Reloading...
+INFO:     Started server process [36572]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+INFO:     Started server process [25080]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\db\migrate_invoices.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [25080]
+WARNING:  WatchFiles detected changes in 'app\api\endpoints\invoices.py', 'app\db\models.py', 'app\api\api.py', 'app\db\schemas.py'. Reloading...
+INFO:     Started server process [32300]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+INFO:     Started server process [34460]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app\db\models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34460]
+WARNING:  WatchFiles detected changes in 'app\api\endpoints\invoices.py', 'app\db\seed.py', 'app\db\schemas.py'. Reloading...
+INFO:     Started server process [25280]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\runners.py", line 123, in run
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Temp\pyenv-win-master\pyenv-win\versions\3.13.2\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+INFO:     Started server process [36048]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

@@ -38,4 +38,31 @@ export const uploadBankFile = async (file, bankName, accountId) => {
     return response.data;
 };
 
+export const getInvoices = async (skip = 0, limit = 100, vendor = '', category_id = '') => {
+    let query = `/invoices/?skip=${skip}&limit=${limit}`;
+    if (vendor) query += `&vendor=${vendor}`;
+    if (category_id) query += `&category_id=${category_id}`;
+    const response = await api.get(query);
+    return response.data;
+};
+
+export const getInvoiceCategories = async () => {
+    const response = await api.get('/invoices/categories/');
+    return response.data;
+};
+
+export const uploadInvoice = async (formData) => {
+    const response = await api.post('/invoices/upload', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+    return response.data;
+};
+
+export const deleteInvoice = async (id) => {
+    const response = await api.delete(`/invoices/${id}`);
+    return response.data;
+};
+
 export default api;

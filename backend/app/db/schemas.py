@@ -40,6 +40,7 @@ class TransactionBase(BaseModel):
     subcategory: Optional[str] = None
     account_id: int
     category_id: Optional[int] = None
+    invoice_id: Optional[int] = None
 
 class TransactionCreate(TransactionBase):
     raw_import_data: Optional[str] = None
@@ -51,3 +52,41 @@ class Transaction(TransactionBase):
 
     class Config:
         from_attributes = True
+
+# Invoice Category Schemas
+class InvoiceCategoryBase(BaseModel):
+    name: str
+    icon: Optional[str] = None
+
+class InvoiceCategoryCreate(InvoiceCategoryBase):
+    pass
+
+class InvoiceCategory(InvoiceCategoryBase):
+    id: int
+    class Config:
+        from_attributes = True
+
+# Invoice Schemas
+class InvoiceBase(BaseModel):
+    vendor: str
+    date: date
+    amount: float
+    currency: str = "EUR"
+    description: Optional[str] = None
+    category_id: Optional[int] = None
+    invoice_category_id: Optional[int] = None
+
+class InvoiceCreate(InvoiceBase):
+    pass
+
+class Invoice(InvoiceBase):
+    id: int
+    file_path: str
+    invoice_category: Optional[InvoiceCategory] = None
+
+    class Config:
+        from_attributes = True
+
+# Update Transaction to include simple Invoice reference or id if needed
+# Re-defining Transaction to update forward references if necessary
+
