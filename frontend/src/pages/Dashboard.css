@@ -1,0 +1,66 @@
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stat-card .amount {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.stat-card .amount.income {
+    color: var(--color-income);
+}
+
+.stat-card .amount.expense {
+    color: var(--color-expense);
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.recent-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recent-list li:last-child {
+    border-bottom: none;
+}
+
+.recent-list li span.income {
+    color: var(--color-income);
+}
+
+.recent-list li span.expense {
+    color: var(--color-expense);
+}
